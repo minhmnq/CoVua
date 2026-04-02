@@ -1,0 +1,33 @@
+data:
+  train_dir: data/processed/train
+  valid_dir: data/processed/valid
+  reader_batch_rows: 4096
+
+model:
+  trunk_channels: 160
+  num_res_blocks: 8
+
+optim:
+  lr: 0.0003
+  weight_decay: 0.0001
+  grad_clip: 1.0
+
+train:
+  device: cuda
+  batch_size: 256
+  num_workers: 12
+  use_amp: true
+  amp_dtype: bf16
+  allow_tf32: true
+  cudnn_benchmark: true
+  channels_last: true
+  compile: false
+  torch_compile_mode: null
+  prefetch_factor: 4
+  persistent_workers: true
+  grad_accum_steps: 1
+  epochs: 10
+  steps_per_epoch: 4000
+  eval_steps: 500
+  save_every: 1
+  checkpoint_dir: outputs/checkpoints

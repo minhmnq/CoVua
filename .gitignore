@@ -1,0 +1,9 @@
+# Python cache
+**/__pycache__/
+*.pyc
+
+# Large training data and artifacts
+chess-ai-large-data/data/
+chess-ai-large-data/outputs/**
+!chess-ai-large-data/outputs/checkpoints/
+!chess-ai-large-data/outputs/checkpoints/best.pt
