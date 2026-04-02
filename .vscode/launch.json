@@ -1,0 +1,51 @@
+{
+    "version": "0.2.0",
+    "inputs": [
+        {
+            "id": "chessSide",
+            "type": "pickString",
+            "description": "Chon ben de choi",
+            "options": [
+                "White",
+                "Black"
+            ],
+            "default": "White"
+        }
+    ],
+    "configurations": [
+        {
+            "name": "Play Chess UI (Choose Side)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "chess_ai.play_ui",
+            "python": "${workspaceFolder}/.venv/Scripts/python.exe",
+            "cwd": "${workspaceFolder}/chess-ai-large-data",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/chess-ai-large-data/src"
+            },
+            "args": [
+                "--side",
+                "${input:chessSide}"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Play Chess UI (Black)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "chess_ai.play_ui",
+            "python": "${workspaceFolder}/.venv/Scripts/python.exe",
+            "cwd": "${workspaceFolder}/chess-ai-large-data",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/chess-ai-large-data/src"
+            },
+            "args": [
+                "--side",
+                "Black"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}

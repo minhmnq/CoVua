@@ -1,0 +1,88 @@
+{
+  "version": "0.2.0",
+  "inputs": [
+    {
+      "id": "chessSide",
+      "type": "pickString",
+      "description": "Chọn bên để chơi",
+      "options": [
+        "White",
+        "Black"
+      ],
+      "default": "White"
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Play Chess UI (Choose Side)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "chess_ai.play_ui",
+      "python": "${workspaceFolder}/../.venv/Scripts/python.exe",
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src"
+      },
+      "args": [
+        "--side",
+        "${input:chessSide}"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "Play Chess UI (White, No Debugger Extension)",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"Start-Process -FilePath '${workspaceFolder}/../.venv/Scripts/pythonw.exe' -ArgumentList '-m chess_ai.play_ui --side White' -WorkingDirectory '${workspaceFolder}'\"",
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src"
+      }
+    },
+    {
+      "name": "Play Chess UI (Black, No Debugger Extension)",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"Start-Process -FilePath '${workspaceFolder}/../.venv/Scripts/pythonw.exe' -ArgumentList '-m chess_ai.play_ui --side Black' -WorkingDirectory '${workspaceFolder}'\"",
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src"
+      }
+    },
+    {
+      "name": "Play Chess UI (White, Debug)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "chess_ai.play_ui",
+      "python": "${workspaceFolder}/../.venv/Scripts/python.exe",
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src"
+      },
+      "args": [
+        "--side",
+        "White"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "Play Chess UI (Black, Debug)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "chess_ai.play_ui",
+      "python": "${workspaceFolder}/../.venv/Scripts/python.exe",
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src"
+      },
+      "args": [
+        "--side",
+        "Black"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    }
+  ]
+}

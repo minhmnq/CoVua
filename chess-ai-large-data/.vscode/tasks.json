@@ -1,0 +1,22 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Play Chess UI (Black)",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-Command",
+				"Start-Process -FilePath '${workspaceFolder}/../.venv/Scripts/pythonw.exe' -ArgumentList '-m chess_ai.play_ui --side Black' -WorkingDirectory '${workspaceFolder}'"
+			],
+			"isBackground": false,
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
